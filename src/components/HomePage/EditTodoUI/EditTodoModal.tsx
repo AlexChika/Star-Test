@@ -12,7 +12,7 @@ function EditTodoModal(props: Props) {
 
   return (
     <section
-      className={`fixed sm:hidden top-0 left-0 right-0 bottom-0 w-full h-full z-30 bg-black/80 ${
+      className={`fixed sm:hidden top-0 left-0 right-0 bottom-0 w-full p-3 h-full z-30 bg-black/80 ${
         modal ? "block" : "!hidden"
       }`}
     >

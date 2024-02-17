@@ -16,7 +16,7 @@ function EditTodoUI(props: Props) {
       </div>
 
       {/*.......... Todo edit input box ....... */}
-      <div className="mt-10 px-7">
+      <div className="mt-7 px-7">
         <p className="tracking-wide leading-relaxed">Task Name</p>
         <form className="">
           <input
@@ -35,7 +35,7 @@ function EditTodoUI(props: Props) {
         <div className="w-full max-w-[120px] border-2 overflow-hidden rounded-lg border-primaryRed">
           <button
             onClick={deleteTodo}
-            className="bg-lightRed border-t border-white/20 block h-16 w-full "
+            className="bg-lightRed border-t border-white/20 block h-12 lg:h-16 w-full "
           >
             <span className="text-lg text-white drop-shadow-sm">Delete</span>
           </button>
@@ -45,7 +45,7 @@ function EditTodoUI(props: Props) {
         <div className="w-full border-2 overflow-hidden rounded-lg border-secondaryBlue">
           <button
             onClick={saveHandler}
-            className="bg-lightBlue border-t border-white/20 block h-16 w-full "
+            className="bg-lightBlue border-t border-white/20 block h-12 lg:h-16 w-full "
           >
             <span className="text-lg text-white drop-shadow-sm">Save</span>
           </button>
