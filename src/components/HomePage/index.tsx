@@ -7,13 +7,14 @@ import EditTodoModal from "./EditTodoUI/EditTodoModal";
 
 function HomePage() {
   const [title, setTitle] = useState(""); // todo tiltle
-  const [modal, showModal] = useState(true);
+  const [modal, showModal] = useState(true); // modal for small screen
   const [todos, setTodos] = useState<Todo[]>([]); // list of todos
   const [toDo_ToBeEditted, set_ToDo_ToBeEditted] = useState<Todo | null>(null);
 
-  console.log({ todos });
-
-  //   function returns a todo object
+  /**
+   * utility returns a todo object
+   * @returns a ToDo object
+   */
   function newTodoObject(): Todo {
     return {
       done: toDo_ToBeEditted ? toDo_ToBeEditted.done : false,
@@ -22,7 +23,10 @@ function HomePage() {
     };
   }
 
-  //   function checks/unchecks a todo;
+  /**
+   * function checks/unchecks a todo;
+   * @param id => Id of todo to be checked or unchecked
+   */
   function checkHandler(id: string) {
     const newTodos = todos.map((t) => {
       if (t.id === id) {
@@ -33,7 +37,9 @@ function HomePage() {
     setTodos(newTodos);
   }
 
-  //   function deletes todos.
+  /**
+   *  function deletes todos.
+   */
   function deleteTodo() {
     const id = toDo_ToBeEditted?.id;
 
@@ -46,14 +52,19 @@ function HomePage() {
     showModal(false);
   }
 
-  // sets an existing todo up for editting
+  /**
+   * sets an existing todo up for editting
+   * @param todo accepts a todo object
+   */
   function editExistingTodo(todo: Todo) {
     set_ToDo_ToBeEditted(todo);
     setTitle(todo.title);
     showModal(true);
   }
 
-  // updates an (edtted) todo in the todos array
+  /**
+   * updates an (editted) todo in the todos array
+   */
   function saveEdittedTodo() {
     const newTodos = todos.map((t) => {
       if (t.id === toDo_ToBeEditted?.id) {
@@ -65,13 +76,18 @@ function HomePage() {
     setTodos(newTodos);
   }
 
-  // adds a todo into todos array
+  /**
+   * adds/saves a todo into todos array
+   */
   function saveTodo() {
     const newTodos = [...todos, newTodoObject()];
     setTodos(newTodos);
   }
 
-  //   function gets called when save btn is hit
+  /**
+   * function gets called when save btn is hit
+   * @returns void
+   */
   function saveHandler() {
     if (title.length < 1) return;
 
@@ -94,9 +110,7 @@ function HomePage() {
           showModal,
         }}
       />
-      <EditTodoUI
-        {...{ title, setTitle, saveHandler, deleteTodo, modal, showModal }}
-      />
+      <EditTodoUI {...{ title, setTitle, saveHandler, deleteTodo }} />
 
       <EditTodoModal
         {...{ setTitle, title, saveHandler, deleteTodo, showModal, modal }}
