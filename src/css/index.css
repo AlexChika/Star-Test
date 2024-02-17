@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  input,
+  button {
+    cursor: pointer;
+    background-color: transparent;
+    outline: none;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0px 2px 0px rgba(0, 0, 0, 1);
+  }
+
+  .drop-shadow-sm {
+    filter: drop-shadow(0 2px 0 rgba(0, 0, 0, 1));
+  }
+
+  .drop-shadow-md {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  }
+}
+
+/* Debuggers */
+.red {
+  border: 2px solid red;
+}
+.blue {
+  border: 2px solid blue;
+}
+.green {
+  border: 2px solid green;
+}
+.yellow {
+  border: 2px solid yellow;
+}
