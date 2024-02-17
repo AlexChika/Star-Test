@@ -25,7 +25,7 @@ function EditTodoModal(props: Props) {
         {/*.......... Todo edit input box ....... */}
         <div className="mt-20 px-7">
           <p className="tracking-wide leading-relaxed">Task Name</p>
-          <form className="">
+          <form onSubmit={saveHandler}>
             <input
               onChange={(e) => setTitle(e.currentTarget.value)}
               value={title}

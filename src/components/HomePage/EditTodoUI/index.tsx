@@ -8,6 +8,11 @@ type Props = {
 function EditTodoUI(props: Props) {
   const { setTitle, title, saveHandler, deleteTodo } = props;
 
+  function onSubmitHandler(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    saveHandler();
+  }
+
   return (
     <section className="flex-col w-full sm:flex hidden bg-[rgba(243,243,243,1)]">
       {/* header */}
@@ -18,7 +23,7 @@ function EditTodoUI(props: Props) {
       {/*.......... Todo edit input box ....... */}
       <div className="mt-7 px-7">
         <p className="tracking-wide leading-relaxed">Task Name</p>
-        <form className="">
+        <form onSubmit={onSubmitHandler}>
           <input
             onChange={(e) => setTitle(e.currentTarget.value)}
             value={title}
